@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunke_commerce=self.webpackChunke_commerce||[]).push([[9],{9009:(e,c,r)=>{r.r(c),r.d(c,{default:()=>o});r(5043);var t=r(3216),n=r(579);function o(e){return localStorage.getItem("userToken")?e.children:(0,n.jsx)(t.C5,{to:"/login"})}}}]);
+//# sourceMappingURL=9.c220c5dd.chunk.js.map
