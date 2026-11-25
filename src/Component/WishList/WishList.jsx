@@ -74,7 +74,7 @@ const WishList = () => {
       ) : (
         <div className='bg-light p-5 mt-2 w-90 mx-auto mt-5 mb-5'>
           <h2 className='fw-bolder'>Shop wishlist</h2>
-          {wishItems.data.map((product, index) => (
+          {(wishItems?.data || []).map((product, index) => (
             <div className='row border-3 border-bottom align-items-center' key={index}>
               <div className='col-lg-2 m-2'>
                 <img src={product.imageCover} alt='' className='w-100' />
