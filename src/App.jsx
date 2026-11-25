@@ -58,10 +58,10 @@ let routers =createBrowserRouter([
     {path:"brands/:id" ,element:<Suspense  fallback={<div className=''>Loading...</div>}><ProtectedRoute><SpecificBrands/></ProtectedRoute></Suspense>} ,
     {path:"categories/:id" ,element:<Suspense  fallback={<div className=''>Loading...</div>}><ProtectedRoute><SpecifCategory/></ProtectedRoute></Suspense>} ,
     {path:"categories" ,element:<Suspense  fallback={<div className=''>Loading...</div>}><ProtectedRoute><Categories/></ProtectedRoute></Suspense>} ,
-    {path:"register" ,element:<Register/>} ,
-    {path:"getemail" ,element:<GetEmail/>} ,
-    {path:"login" ,element:<Login/>} ,
-    {path:"*" ,element:<NotFound/>} ,
+    {path:"register" ,element:<Suspense fallback={<div className=''>Loading...</div>}><Register/></Suspense>} ,
+    {path:"getemail" ,element:<Suspense fallback={<div className=''>Loading...</div>}><GetEmail/></Suspense>} ,
+    {path:"login" ,element:<Suspense fallback={<div className=''>Loading...</div>}><Login/></Suspense>} ,
+    {path:"*" ,element:<Suspense fallback={<div className=''>Loading...</div>}><NotFound/></Suspense>} ,
   ]}
   
 ],{basename:'/E-Commerce'})
