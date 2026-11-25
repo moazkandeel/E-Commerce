@@ -13,9 +13,9 @@ const Register = () => {
     async function Registersubmit(values) {
         setlaoding(true)
     let {data}= await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`,values)
-    .catch((err)=>{setapiErrore(err.response.data.message)
+    .catch((err)=>{setapiErrore(err?.response?.data?.message || 'Something went wrong, please try again')
         setlaoding(false)})
-        if(data.message=='success'){
+        if(data?.message=='success'){
             setlaoding(false)
             navigate('/Login')
         }
