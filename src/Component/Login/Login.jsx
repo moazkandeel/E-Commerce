@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import style from './Login.module.css'
+import logo from '../../Assets/images/freshcart-logo.svg';
 import { useFormik } from 'formik';
 import * as yup from 'yup'
 import axios from 'axios';
@@ -39,32 +40,33 @@ const Login = () => {
     })
  
     return <>
-    <div className="w-75 mx-auto py-4 mt-5" >
-        <h2>Login Now</h2>
-        {apiErrore?<div className="alert alert-danger">{apiErrore}</div>:''}
-        <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email : </label>
-        <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" placeholder='Enter your Email' id='email' name='email' className='form-control mb-3' />
-        {formik.errors.email &&formik.touched.email?<div className="alert alert-danger py-2">{formik.errors.email}</div>:null}
-        <label htmlFor="password">Password : </label>
-        <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="password" placeholder='Enter your Password' id='password' name='password' className='form-control mb-3' />
-        {formik.errors.password &&formik.touched.password?<div className="alert alert-danger py-2">{formik.errors.password}</div>:null}
-        {laoding==true?<button  className='btn bg-main text-white fs-4 fw-bold' type='submit'> <Bars
-height="30"
-width="30"
-color="#fff"
-ariaLabel="bars-loading"
-wrapperStyle={{}}
-wrapperClass=""
-visible={true}
-/> </button>:
-        <button disabled={!(formik.dirty &&formik.isValid)} className='btn bg-main text-white cursor-pointer fs-4 fw-bold me-3' type='submit'>Login  </button>}
-        <span className='py-3'>If you do not have an account please</span>  
-        <Link to={'/register'} className='btn  fs-4 cursor-pointer bg-main ' >Register Now</Link>
-    <div className="py-3"><span className='btn fs-4 cursor-pointer bg-main ' onClick={()=>{forgetPassword()}}>Forget password</span></div>
-        </form>
+    <div className={style.page}>
+      <div className={style.hero}>
+        <h2>Fresh finds,<br />delivered fast.</h2>
+        <p>Thousands of products, one simple cart. Sign in to pick up where you left off.</p>
+        <div className={style.chips}><span>Free shipping</span><span>Secure checkout</span><span>Top brands</span></div>
+      </div>
+      <div className={style.formside}>
+        <div className={style.box}>
+          <img className={style.logo} src={logo} alt="FreshCart" />
+          <h1 className={style.title}>Sign in</h1>
+          <p className={style.sub}>Enter your details below</p>
+          {apiErrore?<div className={style.error}>{apiErrore}</div>:''}
+          <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="email" className={style.label}>Email</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" placeholder='you@example.com' id='email' name='email' className={style.input} />
+            {formik.errors.email &&formik.touched.email?<div className={style.error}>{formik.errors.email}</div>:null}
+            <label htmlFor="password" className={style.label}>Password</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} type="password" placeholder='Enter your password' id='password' name='password' className={style.input} />
+            {formik.errors.password &&formik.touched.password?<div className={style.error}>{formik.errors.password}</div>:null}
+            <div className={style.row}><span className={style.link} onClick={()=>{forgetPassword()}}>Forgot password?</span></div>
+            {laoding==true?<button className={style.btn} type='submit'><Bars height="24" width="24" color="#fff" ariaLabel="bars-loading" wrapperStyle={{}} wrapperClass="" visible={true} /></button>:
+            <button disabled={!(formik.dirty &&formik.isValid)} className={style.btn} type='submit'>Sign in</button>}
+          </form>
+          <p className={style.foot}>Don't have an account? <Link to={'/register'} className={style.link}>Register now</Link></p>
+        </div>
+      </div>
     </div>
-    
     </>
 }
 

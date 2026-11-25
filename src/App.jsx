@@ -64,7 +64,7 @@ let routers =createBrowserRouter([
     {path:"*" ,element:<NotFound/>} ,
   ]}
   
-])
+],{basename:'/E-Commerce'})
 let {setUserToken} =useContext(UserContext);
  useEffect(()=>{
   if (localStorage.getItem('userToken')){
